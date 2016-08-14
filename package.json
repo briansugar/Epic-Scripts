@@ -1,0 +1,21 @@
+{
+  "name": "epic-scripts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "import.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "file-type": "^3.8.0",
+    "fluent-ffmpeg": "^2.1.0",
+    "get-video-duration": "0.0.1",
+    "gm": "^1.23.0",
+    "mkdirp": "^0.5.1",
+    "parse": "^1.9.1",
+    "read-chunk": "^2.0.0",
+    "walk": "^2.3.9"
+  }
+}
