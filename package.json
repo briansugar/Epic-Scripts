@@ -14,8 +14,10 @@
     "get-video-duration": "0.0.1",
     "gm": "^1.23.0",
     "mkdirp": "^0.5.1",
+    "node-ffprobe": "^1.2.2",
     "parse": "^1.9.1",
     "read-chunk": "^2.0.0",
+    "title-case": "^2.1.0",
     "walk": "^2.3.9"
   }
 }
