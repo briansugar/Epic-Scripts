@@ -18,11 +18,22 @@ Parse.serverURL = 'https://cloud.epic.live/parse'
 
 var dir = process.argv[2];
 if (!dir) {
-  console.log("Usage: node import.js Directory {Story Name}")
+  console.log("Usage: node import.js Directory {Story Name} {-r}")
   return
 }
 
-var storyName = process.argv[3] ? process.argv[3] : createStoryName(dir);
+var storyName =  createStoryName(dir)
+var timeline = "+"
+if (process.argv[3] && process.argv[3].indexOf("-r") === 0) {
+  timeline = "-"
+}
+else if (process.argv[3]) {
+  storyName = process.argv[3]
+}
+if (process.argv[4] && process.argv[4].indexOf("-r") === 0) {
+  timeline = "-"
+}
+
 var epicUser = {"__type": "Pointer", "className": "_User", "objectId": "sLvU1OMk2b"};
 
 if (storyName.indexOf("\/") >= 0) {
@@ -292,5 +303,11 @@ function createStoryName(dir) {
 function getMomentDate(name) {
   var seconds = name.split(".").shift().split("_").pop()
   var momentDate = getBaseMomentDate()
-  momentDate.setSeconds(momentDate.getSeconds() + seconds)
+  if (timeline == '-') {
+    momentDate.setSeconds(momentDate.getSeconds() - seconds)
+  }
+  else {
+    momentDate.setSeconds(momentDate.getSeconds() + seconds)
+  }
+  return momentDate
 }
